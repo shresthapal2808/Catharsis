@@ -1,0 +1,230 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catharsis Plans</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel='icon' href={% static 'catharsis/images/logo.png' %}>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #0b101b, #1a2134);
+      font-family: 'Inter', sans-serif;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+    h1 {
+      color: #4dbfff;
+      margin: 60px 0 30px;
+      font-size: 2.8rem;
+    }
+    .pricing-table {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      justify-content: center;
+      padding: 40px;
+      width: 100%;
+      max-width: 1200px;
+    }
+    .pricing-card {
+      background: #1b2131;
+      border-radius: 60px 10px;
+      padding: 40px 30px;
+      box-shadow: 0 0 25px rgba(77, 191, 255, 0.15);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+    .pricing-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px rgba(77, 191, 255, 0.5);
+    }
+    .label {
+      background: #4dbfff;
+      color: #0b101b;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 6px 14px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    .price {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .tagline {
+      font-size: 0.95rem;
+      color: #b0b0b0;
+      margin-bottom: 20px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      color: #ddd;
+      font-size: 0.95rem;
+      line-height: 1.7em;
+      margin-bottom: 25px;
+    }
+    .btn {
+      background: #4dbfff;
+      color: #0b101b;
+      font-weight: 600;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #2f9edc;
+    }
+    .popular-badge {
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      background: #ff4081;
+      color: #fff;
+      padding: 5px 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 12px;
+    }
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal {
+      background: #222b3a;
+      padding: 30px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 400px;
+      position: relative;
+      text-align: left;
+    }
+    .modal h2 {
+      margin-top: 0;
+      color: #4dbfff;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    .modal input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: none;
+      background: #1b2131;
+      color: white;
+    }
+    .modal button {
+      width: 100%;
+      margin-top: 15px;
+    }
+    .close-modal {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: 22px;
+      color: #bbb;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Choose Your Plan</h1>
+  <div class="pricing-table">
+
+    <div class="pricing-card">
+      <div class="label">Free Tier</div>
+      <div class="price">₹0</div>
+      <div class="tagline">Start your wellness journey</div>
+      <ul>
+        <li>✓ Community support forums</li>
+        <li>✓ 24/7 listeners & hotline</li>
+        <li>✓ Moderated peer support</li>
+        <li>✓ 2 free therapy trials</li>
+      </ul>
+      <button class="btn">Start Free</button>
+    </div>
+
+    <div class="pricing-card">
+      <div class="label">Tier One</div>
+      <div class="price">₹299/mo</div>
+      <div class="tagline">Get personalized care</div>
+      <ul>
+        <li>✓ Everything in Free Tier</li>
+        <li>✓ 2 individual therapy sessions/month</li>
+      </ul>
+      <button class="btn" onclick="openModal()">Subscribe</button>
+    </div>
+
+    <div class="pricing-card">
+      <div class="label">Tier Two</div>
+      <div class="popular-badge">Most Popular</div>
+      <div class="price">₹499/mo</div>
+      <div class="tagline">Group support and therapy</div>
+      <ul>
+        <li>✓ Everything in Tier One</li>
+        <li>✓ 4 group therapy sessions/month</li>
+      </ul>
+      <button class="btn" onclick="openModal()">Subscribe</button>
+    </div>
+
+    <div class="pricing-card">
+      <div class="label">Tier Three</div>
+      <div class="price">₹999/mo</div>
+      <div class="tagline">Best personalized care</div>
+      <ul>
+        <li>✓ Everything in Tier Two</li>
+        <li>✓ 4 private therapy sessions/month</li>
+        <li>✓ Priority listener access</li>
+      </ul>
+      <button class="btn" onclick="openModal()">Subscribe</button>
+    </div>
+
+  </div>
+
+  <div class="modal-overlay" id="paymentModal">
+    <div class="modal">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <h2>Payment Details</h2>
+      <input type="text" placeholder="Cardholder Name">
+      <input type="text" placeholder="Card Number">
+      <input type="text" placeholder="Expiry Date (MM/YY)">
+      <input type="text" placeholder="CVV">
+      <button class="btn">Pay Now</button>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById('paymentModal').style.display = 'flex';
+    }
+    function closeModal() {
+      document.getElementById('paymentModal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>

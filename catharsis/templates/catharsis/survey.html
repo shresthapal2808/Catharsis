@@ -1,0 +1,178 @@
+{% extends 'catharsis/base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    html, body {
+        background: linear-gradient(160deg, #06070e 0%, #0a0f1d 50%, #1e8ede 100%) no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        color: #f2f6ff;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+    }
+        .survey-container {
+          max-width: 800px;
+          margin: 60px auto;
+          padding: 40px;
+          background: #191c24;
+          color: #fff;
+          border-radius: 16px;
+          box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+        }
+        .survey-container h2 {
+          color: #4dbfff;
+          text-align: center;
+          margin-bottom: 30px;
+        }
+        .survey-form label {
+          display: block;
+          margin: 16px 0 8px;
+          font-weight: 600;
+          color: #f2f6ff;
+        }
+        .survey-form input[type="text"],
+        .survey-form input[type="email"],
+        .survey-form input[type="password"],
+        .survey-form textarea,
+        .survey-form select {
+          width: 100%;
+          padding: 12px;
+          background-color: #fff;
+          border: none;
+          border-radius: 8px;
+          color: #000;
+          margin-bottom: 20px;
+        }
+        .survey-form input[type="radio"] {
+          margin-right: 10px;
+        }
+        .survey-form .radio-group label {
+          display: block;
+          margin-bottom: 10px;
+          font-weight: normal;
+          color: #f2f6ff;
+        }
+        .survey-form button {
+          background-color: #4dbfff;
+          border: none;
+          color: #0b101b;
+          font-weight: bold;
+          padding: 12px 20px;
+          font-size: 1rem;
+          border-radius: 10px;
+          cursor: pointer;
+          width: 100%;
+          transition: background 0.3s ease;
+        }
+        .survey-form button:hover {
+          background-color: #38a4e0;
+        }
+        .thank-you {
+          text-align: center;
+          color: #4dbfff;
+          font-size: 1.2rem;
+          display: none;
+          margin-top: 20px;
+        }
+</style>
+
+<div class="survey-container">
+  <h2>Quick Survey on Mental Health</h2>
+  <form class="survey-form" id="surveyForm" action="{% url 'survey' %}" method="POST">
+    {% csrf_token %}
+    <label>What is your age group?</label>
+    <div class="radio-group">
+      <label><input type="radio" name="entry.1475680165" value="18-23" required> 18–23</label>
+      <label><input type="radio" name="entry.1475680165" value="24-30"> 24–30</label>
+      <label><input type="radio" name="entry.1475680165" value="31-35"> 31–35</label>
+      <label><input type="radio" name="entry.1475680165" value="35 above"> 35 above</label>
+    </div>
+
+    <label>What is your gender identity?</label>
+    <input type="text" name="entry.649415742" required>
+
+    <label>What is your occupation?</label>
+    <div class="radio-group">
+      <label><input type="radio" name="entry.2032508311" value="Student" required> Student</label>
+      <label><input type="radio" name="entry.2032508311" value="Employed"> Employed</label>
+      <label><input type="radio" name="entry.2032508311" value="Self-employed"> Self-employed</label>
+      <label><input type="radio" name="entry.2032508311" value="Unemployed"> Unemployed</label>
+    </div>
+
+    <label>On a scale of 1 to 10, how would you rate your current stress level?</label>
+    <input type="text" name="entry.661171123" required>
+
+    <label>Is there any availability of free peer-to-peer support services on campus or in your community?</label>
+    <div class="radio-group">
+      <label><input type="radio" name="entry.1334253256" value="Yes" required> Yes</label>
+      <label><input type="radio" name="entry.1334253256" value="No"> No</label>
+      <label><input type="radio" name="entry.1334253256" value="Not aware"> Not aware</label>
+    </div>
+
+    <label>How comfortable do you feel discussing mental health concerns with peers, friends, or family?</label>
+    <div class="radio-group">
+      <label><input type="radio" name="entry.1274209178" value="Comfortable" required> Comfortable</label>
+      <label><input type="radio" name="entry.1274209178" value="Somewhat comfortable"> Somewhat comfortable</label>
+      <label><input type="radio" name="entry.1274209178" value="Not sure"> Not sure</label>
+      <label><input type="radio" name="entry.1274209178" value="Not at all"> Not at all</label>
+    </div>
+
+    <label>What are your primary sources of stress in your life currently?</label>
+    <div class="radio-group">
+      <label><input type="radio" name="entry.1285999797" value="Work or school related stress" required> Work or school related stress</label>
+      <label><input type="radio" name="entry.1285999797" value="Relationship or family issues"> Relationship or family issues</label>
+      <label><input type="radio" name="entry.1285999797" value="Financial stress"> Financial stress</label>
+      <label><input type="radio" name="entry.1285999797" value="Health concerns"> Health concerns</label>
+      <label><input type="radio" name="entry.1285999797" value="Other"> Other</label>
+    </div>
+
+    <label>Have you ever utilized peer-to-peer support for mental health concerns?</label>
+    <div class="radio-group">
+      <label><input type="radio" name="entry.1572763554" value="Yes" required> Yes</label>
+      <label><input type="radio" name="entry.1572763554" value="No"> No</label>
+    </div>
+
+    <label>If no, what stops you from seeking help?</label>
+    <input type="text" name="entry.1458984835">
+
+    <label>What do you think is the societal stance on seeking help?</label>
+    <div class="radio-group">
+      <label><input type="radio" name="entry.1877443982" value="Culturally Influenced" required> Culturally Influenced</label>
+      <label><input type="radio" name="entry.1877443982" value="Lack of awareness"> Lack of awareness</label>
+      <label><input type="radio" name="entry.1877443982" value="Stigmatized"> Stigmatized</label>
+      <label><input type="radio" name="entry.1877443982" value="Highly Encouraged"> Highly Encouraged</label>
+      <label><input type="radio" name="entry.1877443982" value="Mixed Views"> Mixed Views</label>
+    </div>
+
+    <label>What services/features in the app would you think would be good for you?</label>
+    <textarea name="entry.1098765432" rows="3" required></textarea>
+
+    <label>What do you think about an online community driven app as a solution?</label>
+    <div class="radio-group">
+      <label><input type="radio" name="entry.2098765432" value="Very effective" required> Very effective</label>
+      <label><input type="radio" name="entry.2098765432" value="Somewhat effective"> Somewhat effective</label>
+      <label><input type="radio" name="entry.2098765432" value="Not sure"> Not sure</label>
+      <label><input type="radio" name="entry.2098765432" value="Not effective"> Not effective</label>
+    </div>
+
+    <button type="submit">Submit Survey</button>
+  </form>
+  <div class="thank-you" id="thankYouMsg">
+    Thank you for your response!
+  </div>
+</div>
+
+<script>
+  document.getElementById("surveyForm").addEventListener("submit", function (e) {
+    setTimeout(function () {
+      document.getElementById("surveyForm").style.display = "none";
+      document.getElementById("thankYouMsg").style.display = "block";
+    }, 1000);
+  });
+</script>
+{% endblock %}
