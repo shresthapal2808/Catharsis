@@ -3,7 +3,11 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import SurveyResponse
+from django.contrib.auth.decorators import login_required
 
+@login_required
+def unfinished_page(request):
+    return render(request, 'catharsis/unfinished.html')
 
 def index(request):
     return render(request, 'catharsis/index.html')
