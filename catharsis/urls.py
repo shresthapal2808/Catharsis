@@ -7,12 +7,32 @@ urlpatterns = [
     path('register/', views.register_step2, name='register'),
     path('welcome/', views.welcome_page, name='welcome'),
     path('survey/', views.survey, name='survey'),
+    path('about/', views.about, name='about'),
+    path('therapy/audio/', views.audio_therapy, name='audio_therapy'),
+    path('therapy/video/', views.video_therapy, name='video_therapy'),
+    path('therapy/chat/', views.chat_therapy, name='chat_therapy'),
+    path('listeners/profile/', views.listener_profile, name='listener_profile'),
+    path('listeners/ratings/', views.listener_ratings, name='listener_ratings'),
+    path('listeners/experience/', views.listener_experience, name='listener_experience'),
+    path('community/', views.community, name='community'),
+    
+
+
 
 
     #unfinished pages 
     path('connect/', views.unfinished_page, name='connect'),
-    path('community/', views.unfinished_page, name='community'),
-    path('about/', views.unfinished_page, name='about'),
+
+    #listeners
+    path('listener_ratings/', views.unfinished_page, name='listener_ratings'),
+    path('listener_experience/', views.unfinished_page, name='listener_experience'),
+
+    #therapy
+    path('audio/', views.unfinished_page, name='audio_therapy'),
+    path('video/', views.unfinished_page, name='video_therapy'),
+    path('chat/', views.unfinished_page, name='chat_therapy'),
+
+    
 
     #footer
     path('faq/', views.unfinished_page, name='faq'),

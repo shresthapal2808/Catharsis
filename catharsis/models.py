@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class SurveyResponse(models.Model):
     age_group = models.CharField(max_length=50)
@@ -16,3 +17,6 @@ class SurveyResponse(models.Model):
 
     def __str__(self):
         return f"{self.gender_identity} | {self.age_group}"
+    
+
+

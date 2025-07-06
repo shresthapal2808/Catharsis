@@ -36,8 +36,27 @@
                     <li class="nav-item"><a class="nav-link" href="{% url 'connect' %}"><i class="fa fa-comments me-1"></i>Connect Now</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'community' %}"><i class="fa fa-users me-1"></i>Community</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href= "/welcome/">Listeners</a></li>
-                    <li class="nav-item"><a class="nav-link" href= "/welcome/">Therapists</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="listenerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Listeners
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="listenerDropdown">
+                          <li><a class="dropdown-item" href="{% url 'listener_profile' %}">Listener Profile</a></li>
+                          <li><a class="dropdown-item" href="{% url 'listener_ratings' %}">Ratings</a></li>
+                          <li><a class="dropdown-item" href="{% url 'listener_experience' %}">Experience</a></li>
+                        </ul>
+                      </li>
+                      
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="therapyDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Considering Therapy?
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="therapyDropdown">
+                          <li><a class="dropdown-item" href="{% url 'audio_therapy' %}">Audio Therapy</a></li>
+                          <li><a class="dropdown-item" href="{% url 'video_therapy' %}">Video Therapy</a></li>
+                          <li><a class="dropdown-item" href="{% url 'chat_therapy' %}">Therapy through Chatting</a></li>
+                        </ul>
+                      </li>
                     <li class="nav-item ms-2">
                         <a class="btn btn-primary" href="login/"><i class="fa fa-sign-in-alt me-1"></i>Login / Signup</a>
                     </li>

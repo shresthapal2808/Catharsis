@@ -5,12 +5,38 @@ from django.contrib import messages
 from .models import SurveyResponse
 from django.contrib.auth.decorators import login_required
 
+
+
 @login_required
 def unfinished_page(request):
     return render(request, 'catharsis/unfinished.html')
 
 def index(request):
     return render(request, 'catharsis/index.html')
+
+def about(request):
+    return render(request, 'catharsis/about.html')
+
+def audio_therapy(request):
+    return render(request, 'catharsis/audio.html')
+
+def video_therapy(request):
+    return render(request, 'catharsis/video.html')
+
+def chat_therapy(request):
+    return render(request, 'catharsis/chat.html')
+
+def listener_profile(request):
+    return render(request, 'catharsis/listener_profile.html')
+
+def listener_ratings(request):
+    return render(request, 'catharsis/listener_ratings.html')
+
+def listener_experience(request):
+    return render(request, 'catharsis/listener_experience.html')
+
+def community(request):
+    return render(request, 'catharsis/community.html')
 
 def login_view(request):
     if request.method == 'POST':
@@ -82,4 +108,7 @@ def survey(request):
         return render(request, 'catharsis/thank_you.html')  # Create this template
 
     return render(request, 'catharsis/survey.html')
+
+
+
 

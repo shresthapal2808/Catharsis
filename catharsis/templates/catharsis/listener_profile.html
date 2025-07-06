@@ -1,0 +1,212 @@
+{% extends 'catharsis/base.html' %}
+{% load static %}
+
+{% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+   html, body {
+        height: 100%;
+        margin: 0;
+        background: linear-gradient(135deg, #06070e 60%, #1e8ede 100%);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+    
+  .listener-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    transition: box-shadow 0.3s ease;
+    background-color: #ffffff;
+  }
+
+  .listener-card:hover {
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .rating-badge {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    border-radius: 12px;
+    background-color: #f0f4ff;
+    color: #1e8ede;
+    font-weight: 600;
+    display: inline-block;
+  }
+
+  .card-button {
+    background-color: #1e8ede;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .card-button:hover {
+    background-color: #166cbb;
+    color: white;
+  }
+
+  .section-title {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #1e8ede;
+  }
+</style>
+
+<div class="container my-5">
+  <h2 class="section-title">Meet Our Listeners</h2>
+  <div class="row g-4">
+
+    <!-- Card 1 -->
+    <div class="col-md-4">
+      <div class="listener-card h-100">
+        <h5 class="mb-2">Ananya Sharma</h5>
+        <p class="text-muted">Empathetic listener with a background in psychology. Fluent in English and Hindi.</p>
+        <div class="mb-2">
+          <span class="rating-badge">⭐ 4.8</span>
+        </div>
+        <a href="/welcome/" class="card-button mt-2 d-inline-block">Schedule Appointment</a>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-md-4">
+      <div class="listener-card h-100">
+        <h5 class="mb-2">Ravi Mehta</h5>
+        <p class="text-muted">Active listener trained in CBT basics. Available evenings and weekends.</p>
+        <div class="mb-2">
+          <span class="rating-badge">⭐ 4.6</span>
+        </div>
+        <a href="/welcome/" class="card-button mt-2 d-inline-block">Schedule Appointment</a>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-md-4">
+      <div class="listener-card h-100">
+        <h5 class="mb-2">Sneha Verma</h5>
+        <p class="text-muted">Warm and non-judgmental approach with over 3 years of volunteer experience.</p>
+        <div class="mb-2">
+          <span class="rating-badge">⭐ 4.9</span>
+        </div>
+        <a href="/welcome/" class="card-button mt-2 d-inline-block">Schedule Appointment</a>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="col-md-4">
+      <div class="listener-card h-100">
+        <h5 class="mb-2">Karan Patel</h5>
+        <p class="text-muted">Skilled in emotional regulation and conflict resolution. Calm and patient listener.</p>
+        <div class="mb-2">
+          <span class="rating-badge">⭐ 4.3</span>
+        </div>
+        <a href="/welcome/" class="card-button mt-2 d-inline-block">Schedule Appointment</a>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="col-md-4">
+      <div class="listener-card h-100">
+        <h5 class="mb-2">Meera Nair</h5>
+        <p class="text-muted">Focused on trauma-informed support. Listens with compassion and empathy.</p>
+        <div class="mb-2">
+          <span class="rating-badge">⭐ 5.0</span>
+        </div>
+        <a href="/welcome/" class="card-button mt-2 d-inline-block">Schedule Appointment</a>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="col-md-4">
+      <div class="listener-card h-100">
+        <h5 class="mb-2">Arjun Desai</h5>
+        <p class="text-muted">Friendly and understanding. Believes in listening without judgment.</p>
+        <div class="mb-2">
+          <span class="rating-badge">⭐ 3.9</span>
+        </div>
+        <a href="/welcome/" class="card-button mt-2 d-inline-block">Schedule Appointment</a>
+      </div>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="col-md-4">
+      <div class="listener-card h-100">
+        <h5 class="mb-2">Ishita Roy</h5>
+        <p class="text-muted">Specializes in stress and anxiety listening. Fluent in Bengali, Hindi, and English.</p>
+        <div class="mb-2">
+          <span class="rating-badge">⭐ 4.7</span>
+        </div>
+        <a href="/welcome/" class="card-button mt-2 d-inline-block">Schedule Appointment</a>
+      </div>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="col-md-4">
+      <div class="listener-card h-100">
+        <h5 class="mb-2">Mohammed Saeed</h5>
+        <p class="text-muted">Compassionate and calm. Known for helping with identity and self-esteem issues.</p>
+        <div class="mb-2">
+          <span class="rating-badge">⭐ 4.5</span>
+        </div>
+        <a href="/welcome/" class="card-button mt-2 d-inline-block">Schedule Appointment</a>
+      </div>
+    </div>
+
+    <!-- Card 9 -->
+    <div class="col-md-4">
+      <div class="listener-card h-100">
+        <h5 class="mb-2">Divya Kapoor</h5>
+        <p class="text-muted">Experienced listener trained in active listening techniques. Soft-spoken and kind.</p>
+        <div class="mb-2">
+          <span class="rating-badge">⭐ 4.2</span>
+        </div>
+        <a href="/welcome/" class="card-button mt-2 d-inline-block">Schedule Appointment</a>
+      </div>
+    </div>
+
+    <!-- Card 10 -->
+    <div class="col-md-4">
+      <div class="listener-card h-100">
+        <h5 class="mb-2">Siddharth Joshi</h5>
+        <p class="text-muted">Enjoys deep conversations and mindfulness-based support. Available afternoons.</p>
+        <div class="mb-2">
+          <span class="rating-badge">⭐ 4.4</span>
+        </div>
+        <a href="/welcome/" class="card-button mt-2 d-inline-block">Schedule Appointment</a>
+      </div>
+    </div>
+
+    <!-- Card 11 -->
+    <div class="col-md-4">
+      <div class="listener-card h-100">
+        <h5 class="mb-2">Priya Menon</h5>
+        <p class="text-muted">Trained crisis volunteer with warmth and clarity in communication.</p>
+        <div class="mb-2">
+          <span class="rating-badge">⭐ 4.6</span>
+        </div>
+        <a href="/welcome/" class="card-button mt-2 d-inline-block">Schedule Appointment</a>
+      </div>
+    </div>
+
+    <!-- Card 12 -->
+    <div class="col-md-4">
+      <div class="listener-card h-100">
+        <h5 class="mb-2">Aarav Khanna</h5>
+        <p class="text-muted">Youth-focused listener passionate about guiding students and young adults.</p>
+        <div class="mb-2">
+          <span class="rating-badge">⭐ 4.1</span>
+        </div>
+        <a href="/welcome/" class="card-button mt-2 d-inline-block">Schedule Appointment</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
